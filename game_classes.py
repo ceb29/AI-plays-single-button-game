@@ -122,12 +122,12 @@ class Game():
                 collision_top = 1
             if player_bottom > self.closest_wall_bottom[1]:
                 collision_bottom = 1
-            output = self.nets[i].activate((self.players[i].get_center_y(),
+            output = self.nets[i].activate((self.players[i].get_center_y()/800,
                                             self.players[i].get_speed_y(),
                                             collision_top,
                                             collision_bottom,
-                                            self.closest_wall_top[1],
-                                            self.closest_wall_bottom[1]))      
+                                            self.closest_wall_top[1]/800,
+                                            self.closest_wall_bottom[1]/800))      
             if output[0] > 0.5:
                 self.players[i].set_n(1)
             else:
